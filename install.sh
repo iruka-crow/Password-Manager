@@ -5,6 +5,6 @@ sudo mv ./Password-Manager /etc/Password-Manager
 cd /etc/Password-Manager
 sudo mv ./pass-manager /usr/local/bin/pass-manager
 
-sudo chmod 777 /usr/local/bin/pass-manager
+sudo chmod 755 /usr/local/bin/pass-manager
 
 echo "Password-Manager Installed."
