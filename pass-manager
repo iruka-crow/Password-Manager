@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo python3 /etc/Password-Manager/main.py
+cd /etc/Password-Manager
+sudo python3 main.py
