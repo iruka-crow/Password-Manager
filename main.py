@@ -17,7 +17,7 @@ rd_num = [
 ]
 g_i = 0
 
-#main関数
+#main_function
 def main(self):    
     m_regw = ["register","input","1"]
     m_rdw = ["read","2","input"]
@@ -70,14 +70,14 @@ def main(self):
             return 0
     return 1
 
-#登録する関数
+#Function to Register
 def register():
     cer_chk1 = 0
     cer,cer_chk1 = cert()
     if cer == 1:
         print("ok\n")
 
-        #登録プログラム
+        #Core Program
         def register_main(index,psw):
             with open(path+"5",'a') as f:
                 f2 = open(path+"9",'a')
@@ -144,7 +144,7 @@ def register():
         print("Try again")
         return cer_chk1
 
-#読み込み関数
+#Function to Read
 def read():
     cer_chk1 = 0
     cer,cer_chk1 = cert()
