@@ -29,9 +29,11 @@ def main(self):
     m_rdw = ["read","2"]
     m_hpw = ["help","9"]
     m_exw = ["exit","0","quit"]
-    m_logow = ["logout","00"]
-    m_logiw = ["login","11"]
-    
+    m_logow = ["logout","3"]
+    m_logiw = ["login","4"]
+    m_logpscngw = ["passchange","passcng","5"]
+    m_resetw = ["reset","000"]
+
     cer_chk = 0
     """
     cer_chk - ログイン状態のチェック
@@ -68,6 +70,21 @@ def main(self):
         tmp,tmp1 = cert()
         if tmp == 1 and tmp1 == 1:
             print("login successfully.")
+    elif self in m_logpscngw:
+        tmp = pscng()
+    elif self in m_resetw:
+        print("\n All data will be deleted.")
+        inp = input("Are you really want to delete? (y/n) :")
+        if inp == "y":
+            try:
+                import shutil
+                shutil.rmtree(path)
+                print("\nDeleted. Please restart program.\n\n")
+                return 0
+            except:
+                print("Cannot delete file. Please delete yourself.")
+        else:
+            pass
     else:
         tof = error(0)
         if tof == 1:
@@ -342,6 +359,78 @@ def cert():
     elif int(fr) % 3 == 2:
         print("log in now.")
         return 1,1
+
+def pscng():
+    print(" -- Password Change Mode --")
+    print(" type 'change'/'forget'")
+    inp = input(">>")
+    def psrst():
+        print("--- login password register ---")
+        i = 0
+        inp = ""
+        inp2 = ""
+        while True:
+            inp = input("new passwd -->")
+            inp2 = input("vertificate -->")
+            if inp != inp2:
+                print("ignore password.")
+                if i == 2:
+                    return 0,0
+                i += 1
+            else:
+                break
+        with open(path+"6",'w') as f:
+            f.write("863264926964120736483639731")
+        with open(path+"8",'w') as f:
+            f2 = open(path+"1","w")
+            for i in range(len(inp)):
+                rdm = rd.randint(1,98)
+                for j in range(rdm):
+                    f.write(rd_num[rd.randint(1,98)])
+                if i == (len(inp) - 1):
+                    f2.write(str(rdm))
+                else:
+                    if 0 <= rdm < 10:
+                        f2.write("0" + str(rdm))
+                    else:
+                        f2.write(str(rdm))
+                    f2.write("00")
+                f.write(inp[i])
+            f2.close()
+        g_i = 1
+        return 1,1
+    if inp == "change":
+        tmp,tmp1 = cert()
+        if tmp == 1 and tmp1 == 1:
+            tmp,tmp1 = psrst()
+            if tmp == 1 and tmp == 1:
+                print("\nPassword Changed.\n")
+                return 0
+            else:
+                print("\nPassword Changing failed.\n")
+                return 0
+        else:
+            return 0
+
+    elif inp == "forget":
+        print("\nRegistered Password will be deleted.")
+        inp = input("Are you really want to deleted all? (y/n) :")
+        if inp == "y":
+            pass
+        elif inp == "n":
+            return 0
+        else:
+            return 0
+        for i in range(10):
+            with open(path+str(i),'w') as f:
+                if i == 6:
+                    continue
+                else:
+                    f.write("")
+        tmp,tmp1 = psrst()
+        return 0
+    elif inp == "exit":
+        return 0
 
 #help
 def help(self=0):
