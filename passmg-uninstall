@@ -2,5 +2,6 @@
 
 sudo rm -rf /etc/Password-Manager
 sudo rm -rf /usr/local/bin/pass-manager
+sudo rm -rf /usr/local/bin/passmg-uninstall
 
 echo "Password-Manager Uninstalled."
