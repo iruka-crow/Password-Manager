@@ -10,3 +10,6 @@
 /pass-manager  
 *Start-up main.py shell script  
 *Put in $PATH  
+
+/passmg-uninstall
+*Uninstall all file
