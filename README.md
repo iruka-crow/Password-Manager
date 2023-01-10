@@ -1,15 +1,21 @@
 # Password-Manager
 
-/main.py  
-*Main python program  
-*Make system file in /etc/Password-Manager/passc on Linux. (make folder on [main.py]'s directory)
-
+/src  
+    /main.py  
+    *Main python program  
+    *Make system file in /etc/Password-Manager/passc on Linux. (make folder on [main.py]'s directory)  
+    /Linux  
+        /pass-manager  
+        *Program start script for Linux  
+        /passmg-uninstall  
+        *Program set file uninstaller for Linux  
+    /Windows  
+        /pass-manager  
+        *Program start script for Linux  
+        /passmg-uninstall  
+        *Program set file uninstaller for Linux  
 /install.sh  
 *Install this branch's file on Linux  
 
-/pass-manager  
-*Start-up main.py shell script  
-*Put in $PATH  
-
-/passmg-uninstall
-*Uninstall all file
+/install.bat  
+*Install this branch's file on Windows  
