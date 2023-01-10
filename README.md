@@ -2,11 +2,11 @@
 
 ## インストール方法  
 ### Pythonから開く場合  
-src内のmain.pyをダウンロードしてください。  
+src内のmain.pyをダウンロード  
 ### Windowsの場合  
-このファイルを丸ごとZipでダウンロードし、解凍したフォルダで "install.bat" を管理者として実行してください。  
+このファイルを丸ごとZipでダウンロードし、解凍したフォルダで "install.bat" を管理者として実行  
 ### Linuxの場合
-install.shのみダウンロードし、実行してください。    
+install.shのみダウンロードし、実行    
 
 ## ディレクトリ構成 
 Password-Manager  
