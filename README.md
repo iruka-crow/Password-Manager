@@ -1,6 +1,12 @@
 # Password-Manager
 
-##インストール方法
+## インストール方法  
+### Pythonから開く場合  
+src内のmain.pyをダウンロードしてください。  
+### Windowsの場合  
+このファイルを丸ごとZipでダウンロードし、解凍したフォルダで "install.bat" を管理者として実行してください。  
+### Linuxの場合
+install.shのみダウンロードし、実行してください。    
 
 ## ディレクトリ構成 
 Password-Manager  
@@ -29,6 +35,12 @@ Password-Manager
 > English
 
 ## How to Install
+### Open on the Python  
+Download the 'main.py' file in src.  
+### Windows  
+Download all the data with in a zip file, then unzip and launch 'install.bat' as Administrator.  
+### Linux
+Download and Run 'install.sh'    
 
 ## Directory Tree  
 Password-Manager  
