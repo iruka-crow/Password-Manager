@@ -56,6 +56,7 @@ def main(self):
         if cer_chk==1:
             with open(path+"6",'w') as f:
                 f.write("863264926964120736483639733")
+        enc(0)
         return 0
     elif self in m_logow:
         if cer_chk == 1:
@@ -90,6 +91,7 @@ def main(self):
         if tof == 1:
             with open(path+"6",'w') as f:
                 f.write("863264926964120736483639733")
+            enc(0)
             return 0
     return 1
 
@@ -277,6 +279,10 @@ def read():
 
 #認証
 def cert():
+    print("enc")
+    enc(1)
+    print("encend")
+
     f = open(path+"6",'r')
     fr = f.read()
     f.close()
@@ -501,6 +507,64 @@ def error(self):
         print("Error1 : System error/ file I/O permission might be denied")
         return ctn()
 
+def enc(self):
+    #まじ軽い暗号化(難読化)
+    #ログイン時・終了時に実行
+    if self == 0:
+        #暗号化
+        tmp = ""
+        enc = ""
+        dec = ""
+        for i in range(10):
+            enc = ""
+            if i == 4:
+                continue
+            elif i == 6:
+                continue
+            f = open(path+str(i),'r')
+            tmp = f.read()
+            f.close()
+            if tmp != "":
+                for j in range(len(tmp)):
+                    enc += format(ord(tmp[j]),'x')
+            f = open(path+str(i),'w')
+            f.write(enc)
+            f.close()
+        with open(path+"4",'w') as f:
+            f.write("1")
+        print("\nEncryption program is done.\n") 
+    elif self == 1:
+        print("decmain")
+        #復号化
+        f = open(path+"4",'r')
+        fr = f.read()
+        f.close()
+        print("fr:"+fr)
+        if fr == "0":
+            print("\nDecryption has already done.\n")
+        elif fr == "1":
+            for i in range(10):
+                dec = ""
+                if i == 4:
+                    continue
+                elif i == 6:
+                    continue
+                print(i)
+                f = open(path+str(i),'r')
+                tmp = f.read()
+                f.close()
+                print(tmp)
+                while tmp != "":
+                    dec += chr(int(tmp[:2],16))
+                    tmp = tmp[2:]
+                f = open(path+str(i),'w')
+                f.write(dec)
+                f.close()
+            with open(path+"4",'w') as f:
+                f.write("0")
+            print(dec)
+            print("\nDecryption program is done.\n")
+
 try:
     os.mkdir("passc")
     path = "./passc/"
@@ -535,3 +599,4 @@ except:
     #強制ログアウト
     with open(path+"6",'w') as f:
         f.write("863264926964120736483639733")
+    enc(0)
