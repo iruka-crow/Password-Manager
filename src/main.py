@@ -532,14 +532,14 @@ def enc(self):
             f.close()
         with open(path+"4",'w') as f:
             f.write("1")
-        print("\nEncryption program is done.\n") 
+        #print("\nEncryption program is done.\n") 
     elif self == 1:
-        print("decmain")
+        #print("decmain")
         #復号化
         f = open(path+"4",'r')
         fr = f.read()
         f.close()
-        print("fr:"+fr)
+        #print("fr:"+fr)
         if fr == "0":
             print("\nDecryption has already done.\n")
         elif fr == "1":
@@ -549,11 +549,11 @@ def enc(self):
                     continue
                 elif i == 6:
                     continue
-                print(i)
+                #print(i)
                 f = open(path+str(i),'r')
                 tmp = f.read()
                 f.close()
-                print(tmp)
+                #print(tmp)
                 while tmp != "":
                     dec += chr(int(tmp[:2],16))
                     tmp = tmp[2:]
@@ -562,8 +562,8 @@ def enc(self):
                 f.close()
             with open(path+"4",'w') as f:
                 f.write("0")
-            print(dec)
-            print("\nDecryption program is done.\n")
+            #print(dec)
+            #print("\nDecryption program is done.\n")
 
 try:
     os.mkdir("passc")
